@@ -1,13 +1,20 @@
 import sqlite3
+import logging, sys
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
+from datetime import datetime
+
+# Initial count on the database
+count_connection = 0
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
+    global count_connection
+    count_connection += 1
     return connection
 
 # Function to get a post using its ID
@@ -17,6 +24,11 @@ def get_post(post_id):
                         (post_id,)).fetchone()
     connection.close()
     return post
+
+# Function for info log level message
+def log_message(message):
+    timestamp = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+    return f"{timestamp}, {message}"
 
 # Define the Flask application
 app = Flask(__name__)
@@ -36,13 +48,16 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.error(log_message('Article does not exist!'))
       return render_template('404.html'), 404
     else:
+      app.logger.info(log_message(f'Article "{post["Title"]}" retrieved!'))
       return render_template('post.html', post=post)
-
+      
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.info(log_message('"About Us" page retrieved!'))
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -61,10 +76,50 @@ def create():
             connection.commit()
             connection.close()
 
+            app.logger.info(log_message(f'Article "{title}" created!'))
+            
             return redirect(url_for('index'))
 
     return render_template('create.html')
 
+# Define the healthcheck endpoint
+@app.route('/healthz')
+def healthcheck():
+    try:
+        connection = get_db_connection()
+        connection.execute('SELECT * FROM posts').fetchall()
+        response = app.response_class(
+                response=json.dumps({"result":"OK - healthy"}),
+                status=200,
+                mimetype='application/json'
+        )
+    except sqlite3.OperationalError as err:
+        response = app.response_class(
+                response=json.dumps({"result":"ERROR - unhealthy"}),
+                status=500,
+                mimetype='application/json'
+        )
+
+    return response
+
+# Define the metrics endpoint
+@app.route('/metrics')
+def metrics():
+    connection = get_db_connection()
+    total_posts = connection.execute('SELECT * FROM posts').fetchall()
+    connection.close()
+    response = app.response_class(
+            response=json.dumps({"db_connection_count": count_connection, "post_count": len(total_posts)}),
+            status=200,
+            mimetype='application/json'
+    )
+
+    return response
+
 # start the application on port 3111
 if __name__ == "__main__":
+   
+   # Set the default log level to DEBUG
+   logging.basicConfig(level=logging.DEBUG)
+
    app.run(host='0.0.0.0', port='3111')
