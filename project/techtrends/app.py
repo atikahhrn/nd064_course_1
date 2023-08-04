@@ -4,6 +4,7 @@ import logging, sys
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 from datetime import datetime
+from logging import StreamHandler
 
 # Initial count on the database
 count_connection = 0
@@ -119,7 +120,12 @@ def metrics():
 # start the application on port 3111
 if __name__ == "__main__":
    
-   # Set the default log level to DEBUG
+   # Set logger to handle STDOUT and STDERR
    logging.basicConfig(level=logging.DEBUG)
+   stdout_handler = logging.StreamHandler(sys.stdout)
+   stderr_handler = logging.StreamHandler(sys.stderr)
+   handlers = [stderr_handler, stdout_handler]
+
+   logging.basicConfig(level=logging.DEBUG, handlers=handlers)
 
    app.run(host='0.0.0.0', port='3111')
