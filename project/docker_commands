@@ -16,39 +16,27 @@ docker logs 6942f32aad5f
 WARNING:werkzeug: * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
 INFO:werkzeug: * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:38:52] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:38:52] "GET /static/css/main.css HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:38:52] "GET /favicon.ico HTTP/1.1" 404 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:39:04] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:39:04] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:08/03/2023, 19:41:51, "About Us" page retrieved!
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:41:51] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:41:51] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:07] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:07] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:08/03/2023, 19:42:08, Article "2020 CNCF Annual Report" retrieved!
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:08] "GET /1 HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:08] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:10] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:10] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:08/03/2023, 19:42:11, Article "KubeCon + CloudNativeCon 2021" retrieved!
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:11] "GET /2 HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:11] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:19] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:19] "GET /static/css/main.css HTTP/1.1" 304 -
-ERROR:app:08/03/2023, 19:42:28, Article does not exist!
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:28] "GET /8 HTTP/1.1" 404 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:28] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:39] "GET /healthz HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:45] "GET /metrics HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:52] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:52] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:54] "GET /create HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:42:54] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:08/03/2023, 19:43:18, Article "Sample New Post" created!
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:43:18] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:43:18] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:43:18] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:08/03/2023, 19:43:25, Article "Sample New Post" retrieved!
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:43:25] "GET /7 HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [03/Aug/2023 19:43:25] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:46:22] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:46:22] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/04/2023, 08:46:42, Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:46:42] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:46:42] "GET /static/css/main.css HTTP/1.1" 304 -
+ERROR:app:08/04/2023, 08:46:52, Article does not exist!
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:46:52] "GET /8 HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:46:52] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/04/2023, 08:46:55, "About Us" page retrieved!
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:46:55] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:46:55] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:00] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:04] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:04] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/04/2023, 08:47:16, Article "Sample Post" created!
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:16] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:16] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/04/2023, 08:47:19, Article "Sample Post" retrieved!
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:19] "GET /7 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:47:19] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:48:14] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2023 08:48:23] "GET /metrics HTTP/1.1" 200 -
